@@ -67,3 +67,248 @@ Read - git branching
 Read - git add ssh keys to github 
 email brannon with github name - brannonlucas@gmail.com
 
+_______________________________________________________
+
+9/17/2014
+
+_______________________________________________________
+
+<h1>html & css</h1>
+
+!important  -  Not for general use. Good for debug. (infinite specificity) 
+
+cmd + bracket is like hitting tab. (iOS trick)
+
+example below...
+
+nav .button {
+  
+}
+
+When your browser reads a selector it actually looks from the inside out of a selector. Like - .button - nav
+
+/example
+
+
+nav.button   both class of button and the nav tag
+
+#menu nav.button   both class of button and the nav tag within menu
+
+nav .button  children withing nav with class of button.
+
+.container #menu #logo.new     both id of logo and new that exist within menu within container.
+
+_________________________________________
+
+
+D.R.Y - Don't repeat yourself
+
+.mainclass{
+  all the styles
+}
+
+.red {
+  all the styles + red
+}
+
+.blue {
+  all the classes + blue
+}
+
+____________________________________________
+
+background: url();
+background-size: contain; cover; or 100% auto;
+background-color: red;
+
+all can be shortened to just- background:
+
+
+<img src="">  -- no closing tag. what what?
+
+____________________________________________
+
+This is the box model
+http://www.w3schools.com/css/box-model.gif
+
+padding is getting fat
+margin is personal space
+
+Margin is technically outside of the box model.
+____________________________________________
+
+box-sizing: border-box;  (if you have a box to take up 100% and also want to have padding it calculates the padding then fills up the rest)
+
+If you had a box that was 100% and then add padding it would go off the edge of the screen.
+
+____________________________________________
+
+float: left;  -  similar to inline-block. 
+
+.clearfix {
+  clear:both;
+}
+
+clear:both; is the way to get rid of a float property. Add it as an additional class on something to get it to not float.
+
+
+
+display: block; is pretty much default. respects width and margin visually but really takes up the full width.
+
+display: inline; is only taking up the space it needs. Doesn't respect margin or width.
+
+display: inline-block; similar to float left. does respect widht and margin. Doesn't take the whole width. Has odd behavior of putting 1em between stuff sometimes.
+
+__________________________________________
+
+<link href="styles.css" type="text/css" rel="stylesheet">
+
+This is the way to link to a css page.
+
+
+__________________________________________
+
+codepen.io is like js.fiddle
+
+__________________________________________
+
+9/18/2014
+
+Normalize.css is best practice to reset the styles across all browsers.
+
+position static- default behavior, don't need to declare unless undoing previous changes.
+
+absolue postioning- based on position within the document.
+
+relative positioning- declare a top, bottom, left, right coords to position.
+
+position fixed- based on screen. Stays in place even when scrolling. (navigation always at the top)
+
+a parent with position relative can have an absolute child that will be relative to the parent's container.
+
+z-index does not work without declaring a position.
+
+75 characters is the recommended max width for a block of text.
+
+________________________
+
+FLEXBOX   ---- LEARN EVERYTHING ABOUT THIS!!!!!   css tricks complete guide to flexbox - google that
+
+need a parent!
+
+<div class="parent">
+  <div class="box one"></div>
+  <div class="box two"></div>
+  <div class="box three"></div>
+</div>
+
+.parent {
+  display: flex;
+  justify-content: space-betwwwn;
+  flex-direction: column; (or row or row-reverse)
+  align-items: center;   ------- centers vertically!!!!!!!   wtf SWAG YOLO
+}
+
+.box {
+  height and width and bg and margin
+}
+
+.one {
+  order: 2;
+}
+
+
+
+
+-------------------------------------
+
+9-20-2014
+
+progressive enhancement.  (same as graceful degredation)
+
+because css cascades you can put something for old browsers like just a bg color, but then, overwrite it with newer features if they are supported by the browser. if they arent supported they'll be ignored.
+
+Mobile first-  make smart decisions when designing that let you give mobile and desktop equal support.
+(see xkcd ven diagram about school website)  Helps you cut down to what is important. makes for a better desktop experience too.
+
+------------------------------
+
+Media queries-
+
+sort of like if statement. 
+
+@media screen and (max-width:900px), (orientation: landscape){
+  .box {
+    background: red;
+  }
+}
+
+one example of "Screen" as a media query is having a separate print style.
+
+other media queries-
+
+orientation- portriat or landscape
+
+in a media query you can add a comma to say "or" (),()
+
+Use media queries when your design breaks. (shouldnt be ever 20 pixels or you know you have a bigger design problem)
+
+using % for styling saves lots of trouble and should need less media queries.
+
+ display: flex;
+  justify-content: center;    --- horizontal centering
+   align-items: center;  ---- verticle centering
+
+    -  flex-start   - flex-end
+  flex-direction: column-reverse;   or row
+
+
+
+START   MIDDLE   END   is the order for flex-start.
+
+
+START
+MIDDLE
+END
+
+is the order when usin column
+
+
+transition: background 0.8s ease;
+
+hover, active, visited
+
+DASH - offline documentation for various api's. in appstore.
+
+MDM - Mozilla developer 
+
+
+<meta name="viewport" content="width=device-width, user-scalable=no">   "viewport metatag" is needed for mobile scalability.
+
+do - downlaod canary
+
+overflow hidden hides a bigger div's extra girth within a smaller container.
+overflow scroll is the same, but you can scroll to see it all. (but will always show scroll bar even if not needed)
+overflow auto is your bro. only shows scroll if needed.
+you can also do overflow-x: auto; and it will only show if within a constraint like only x axis, can do y too.
+
+
+calc- 100% - 300px
+
+font-family: lets you change the font.  1st choice, 2nd choice, 3rd choice.
+
+google fonts - only choose the fonts to include, the more the bigger the file. copy the css link and paste into the head so you can have it in your project.
+
+-----------------------
+
+9-23-2014
+
+-----------------------
+
+
+
+
+
+
+
+
