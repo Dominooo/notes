@@ -305,6 +305,340 @@ google fonts - only choose the fonts to include, the more the bigger the file. c
 
 -----------------------
 
+Javascript fundamentals
+
+JS provides functionality.
+
+Nothing to do with Java.
+
+DOM  -   Document Object Model
+
+all the elements that create a website or webapp
+
+javascript allows you to hook into events like button clicks or selecting something.
+
+can do things asynchrynously without refreshing the page.
+
+database layer for javascript.
+
+how the web works - http://alpha.ideavis.co/529cc5f
+
+node is javascript on a server
+
+// is a single line comment
+
+/*
+multi line comment
+*/
+
+recommend only using single line comments due to regex issues.
+
+Operators
+
+= assigns
+== compare values             33 == '33'  true
+=== compare values and types  33 === 'false'
+< less than
+> greater than
+<= less than or equal to
+>= greater than or equal
+truthy vs falsy  truthy returns true falsy returns false
+
+vars are normally written in camelCase
+
+declare, then initialize, or do them in the same comment
+
+var name = 'joe'  does all three.
+
+if statements
+
+if (condition) {
+  //code
+}
+
+functions are reusable bits of code.
+
+function functionName(parameter1, parameter2) {
+  //code
+  //optional return statement
+}
+
+functionName is just a variable
+functionName() is active and being called
+
+var makeACat = function () {
+  expression             (to be called later)
+};
+
+function makeACat() {
+  function decleration  (used on page load)
+}
+
+
+
+Test Driven Development
+Start with a goal in mind ^
+create a series of tests, and if they pass you're done.
+
+
+
+9-24-2014
+
+
+------------------------------------------------
+example of expression-
+
+var functionName = function(parameter) {
+  var myReturnVariable = 'hello ' + parameter + '!';
+  return myReturnVariable;
+}
+
+functions are like a blender, fruit are variables and it returns a single smoothie.
+
+\ backslash is the escape character
+
+use single quotes to avoid problems with quoted text in strings.
+
+if you're ever writing something twice, create a function silly billy.
+
+variables have a functional scope. 
+
+how to correctly do a variable.
+
+var getFred = function() {
+  var fred= 'I/'m fred';
+  return fred;
+}                        ---- Functional
+
+var name = getFred();   ---Global
+sayHello(name);
+
+
+you can put a function in a function.
+
+if the nested one is called "inner" you'd say "getFred.inner"
+
+
+
+LOOPS
+
+Never put a semicolon after a curly bracket unless it's a functional variable. Mostly never though.
+
+for(var i = 0; i < value; i++) {
+  //do something each iteration
+}
+
+used to iterate over something a set amount of times.
+
+while used to check something that doesn't involve a set ammount of iterations.
+
+
+while(condition) {
+  // do something
+}
+
+for example while false, don't let the user continue. If true let them.
+
+condition can be anything that is truthy or falsy
+
+var userInput = false;
+while(userInput === false){
+  //Please input a name
+}
+
+
+an array is like a backpack. It holds many items that can be strings, numbers, etc.
+
+purpous to store many items in one var.
+
+DONT- var arrayName = new Array();
+
+DO- var arrayName = [];
+
+comma separate things in an array.
+
+the only diff in declaring an object vs an array is the brackets [] vs {}
+
+arrays always start counting at zero
+
+if you try to access something that doesn't exist you get 'undefinged'
+
+indices are the items ordered in an array.
+
+
+arrays have property and methods
+
+property-  arrayName.length returns length.
+
+method- a function inside an object.
+
+arrayName.push(element, element)  adds elements to end of array
+
+arrayName.pop() pops off the last items and it's gone
+
+arrayName.shift() removes the first item in array.
+
+arrayName.unshift() adds to beginning
+
+stringName.split() turns a string into an array.
+
+arrayName.join() turns an array into a string.
+
+arrayName.slice() return a copy of a portion of an array
+
+arrayName.reverse() obvious
+
+---------------------------
+9-25-2014
+----------------------------
+
+var person = ['hair','height','age','gender'];
+
+array is cool, but you don't know info about the things stored in it.
+
+var person = {}
+
+objects have keys and values.
+
+var person = {
+  hairColor: 'brown'
+}
+
+hairColor is the key.  Brown is the value.
+
+person.hairColor;  -- will return 'brown'
+
+
+var person = {
+  hairColor: 'brown',
+  name: 'jake'
+}
+
+
+console.log(person.name + 'has ' person.hairColor + "hair.")
+
+
+add keys and values to an object using .
+
+person.age = 28;
+
+
+var devin = {
+  name: 'devin',
+  age: 26
+};
+
+devin.age += 1    is the way to add one to that value.
+
+
+var devStudents = []
+
+devStudents.push(devin)
+
+var jeramy = {}
+
+jeramy.name = 'Jeramy';
+jeramy.age = '100'
+
+devStudents.unshift(jeramy)
+
+how to access objects in an array.
+need to know it's index and value.
+
+alert(devStudents[0].age);
+
+I can get both out -
+
+alert(devStudents[0].name + devStudents[0].age);
+
+another way is -
+
+for (var i = 0; i < devStudents.length; i++) {
+console.log(devStudents[i]);
+}
+
+I can get all the keys in an object-
+
+for(var key in devin){
+  console.log(key)
+}
+
+for(var key in devin){
+  console.log(devin[key])
+}
+
+Objects don't have order.
+
+be very careful of this-
+
+for(var key in devin){
+  devin[key] = "haha ";
+}
+
+changes every value to haha.
+
+another way other than devin.name is a for in loop
+
+for(var key in devin){
+  if(key === name){
+  devin[key] = 'Devin'
+  }
+};
+
+
+to add to all arrays in an object-
+
+for(var i =0; i < devStudents.length; i++){
+  devStudents[i]['status'] = 'student;'
+}
+
+
+to find the index of an array in an object-
+
+
+for (var i = 0; i < devStudents.length; i++){
+  if(devStudents[i].status === 'Mentor'){
+    devStudents.splice(i, 1);
+  }
+}
+
+
+to delete a key-
+
+delete myObject.key;
+
+
+! (bang) is used to see if something is falsy
+
+to see if truthy
+
+for (var key in object) {
+  if (object[key]) {
+
+  }
+}
+
+
+That's it! wow.
+
+_______________________________________________
+
+9-27-2014
+
+------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
