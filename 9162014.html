@@ -628,21 +628,238 @@ _______________________________________________
 ------------------------------------------------
 
 
+function sayName(name){
+  alert(name);
+}
+
+this is what we learned originally
+
+
+var sayName = function(name) {
+  alert(name);
+}
+
+
+do this for today.
+
+
+var bestFriends = [];
+
+var bestFriends.push('Devin')
+
+var lostFriend = vestFriends.pop();
+
+bestFriends.unshift(lostFriend);
+
+
+var str = 'I have a cat'
+
+var reverse = function(str){
+  var newArr = str.split('');
+  newArr.reverse();
+  return newArr.join('');
+}
+
+or
+
+var reverse = function(str){
+  return str.split('').reverse().join('');
+}
+
+
+THATS_THE_SAME_CODE ^
+
+
+var me ={};
+
+me.name = 'Devin';
+me.age = 27;
+
+delete me.age;
+
+-
+
+var friends = ['jo', 'mike', 'alex'];
+var person = {
+  name: 'devin';
+  age: 27;
+  weight: 173;
+}
+
+for (var i = 0; i < freinds.length; i++) {
+  alert(friends[i]);
+}
+
+for (var key in person) {
+  alert(person[key]);
+}
+
+--
+
+var sayHi = function (){
+  alert('Hi');
+}
+
+sayHi();
+
+___
+
+9/30/2014
+
+A callback is running a function in a function.
+
+
+
+var whatName = function(cb){
+    name = prompt("What is your name?");   
+    cb(name);                 
+};                   
+
+
+
+var alertName = function(x){
+ alert(x);   
+};
+
+whatName(alertName);
 
 
 
 
+Synchrynous vs Ascynchronys code-
+
+Javascript can start a function, see it'll take a bit and jump to another function at the same time.
 
 
 
 
+var devStudents = [];
+
+var mitch = {name: "Mitch", age: 28};
+var kelsey = {name: "Kelsi", age: 21};
+
+var logger = function(anything) {
+  console.log(anything);
+};
 
 
+var looper = function(arr, cb){
+  for (var i = 0; i < arr.length; i++){
+    cb(arr[i]);
+  }
+};
+              
+looper(devStudents, logger);
+
+---------------------
+10-1-2014
+
+---------------------
+
+var devin = {
+    name: 'Devin',
+    age: 27,
+    height: 6,
+    hairType: 'bald',
+    hairColor: 'skin'
+};
+
+Would suck to make one for ever person.
+
+need a constructor.
+original-
+
+var personMaker = function(name, age, height, hairType, hairColor) {
+  var person = {};
+  person.name = name;
+  person.age = age;
+  person.height = height;
+  person.hairType = hairType;
+  person.hairColor = hairColor;
+
+  return person;
+};
+
+var josh = personMaker('Josh', '31', '6\' 2\"', 'short', 'brown');
+                       
+console.log(person);
 
 
+Reserve words- (new, this, prototype)
+
+THIS- the variable that calls the function.  (when you call it becomes the thing before the '.')
+NEW- Right before calling a constructor function. It creates a new instance(object) in a constr.
+PROTOTYPE- a key all objects have thet is an object. Person.prototype.thing = (thing becomes key){thing here becomes the value of the key.}
+
+CONSTRUCTORS BEGIN WITH CAPS  (and don't return anything)
+Constructor version-
+
+var PersonMaker2 = function(name, age, height, hairType, hairColor){
+  this.name = name;
+  this.age = age;
+  this.height = height;
+  this.hairType = hairType;
+  this.hairColor = hairColor;
+};
+
+var devin = new PersonMaker2('devin', '27', 6, 'balding', 'red');
+original function to add to this user-
+devin.sayName = function(){
+  alert(devin.name);
+};
+
+devin.sayName();
+prototype version to add to all users-
+Prototype- lets you add a function to everthing
+
+PersonMaker2.prototype.sayName = function(){
+  alert('hello my name is ' + this.name);
+}
+
+devin.sayName();
+
+-- the this above lets you refer to the devin in the call.
+
+-- in the first example we shouldnt use it because you shouldn't write to javascript's main branches (i.e. "object"). Also, you would have to add the sayname to all users, rather than a prototype.
+
+so to add someone-
+
+var jeramy = new PersonMaker2('Jeramy', '34', 6, 'short', 'brown');
+
+jeramy.sayName()  --- will work just fine because the prototype works for everyone.
 
 
+var pizza = 'Pizza';
+
+PersonMaker2.prototype.eatPizza = function(){
+  console.log(this.name + " ate the " pizza)
+}
+
+Anytime you put a '.' javascript looks before it to see what you are referencing.
+
+If you ask for something that doesn't exist-
+
+"hey PersonMaker2, do you have the key of 'name'?"
+"nope, check the prototype."
+"Prototype says. Nope, Go check out the thing that made PersonMaker2"
+"Constructor says nope, check the default trunk of all javascript"
+"Javascript master say 'undefined lol'"
+
+If you ask for something that does exist-
+"nope, check prototype"
+"prototype says Yuuuup."
+
+Everything in javascript is an object other than strings and numbers.
+
+personMaker2.prototype.hasSkin = true;
+
+devin.hasSkin();
+
+Never put something on prototype unless everything in the function has it in common. For example, a prototype of last name = "olsen" would send it to everyone, but if you did hasLastName = true, that would be appropriate. (except for Madonna, Sting, or the artist formerly known as Prince)
 
 
+array, string, object, function, are the main classes in javascript. They are all actually constructors.
 
-
+----------------------------------
+10/1/2014
+-----------------------------------
