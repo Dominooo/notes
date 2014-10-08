@@ -863,3 +863,57 @@ array, string, object, function, are the main classes in javascript. They are al
 ----------------------------------
 10/1/2014
 -----------------------------------
+
+loading jQuery-
+
+use a local version or google's cdn.
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+You want to wrap jQuery in the ready listener so that it doesn't happen until the page loads.
+
+$(document).ready(function() {
+  var content = $('.myParagraph');
+});
+
+$(document).ready(function(){
+  $('.description').remove();
+});
+
+Grunt takes multiple js files and minifies and makes them one file. (better for load time)
+
+Event listeners are how you interact with a user.
+
+Such as a click, scroll, onKey up.
+
+.on(event, what to run)
+
+jQuery-
+
+$(document).ready(function(){
+$(".className").on('event', functionName);
+});
+
+vanilla-
+
+document.addEventListener('DOMContentLoaded', function() {
+document.querySelector('.className').addEventListener('click', functionName);
+});
+
+.val();
+take whatever is in a text input.
+var userInput = $('.user-input').val();
+
+You can chain methods together, the same as javascript.
+
+
+diff between jquery and angular-
+
+Angular is for single page apps.
+Jquery is good at accessing the dom. (more general)
+
+
+---------------------------------
+10-7-2014
+----------------------------------
+
